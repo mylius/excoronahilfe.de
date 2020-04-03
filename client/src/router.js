@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
+import AboutUs from "./views/AboutUs.vue";
 import Index from "./views/Index.vue";
 import Impressum from "./views/Impressum.vue";
 import Privacy from "./views/Privacy.vue";
@@ -40,6 +41,14 @@ export default new Router({
       path: "/faq",
       name: "faq",
       components: { default: FAQ, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+      }
+    },
+    {
+      path: "/aboutus",
+      name: "aboutus",
+      components: { default: AboutUs, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
       }

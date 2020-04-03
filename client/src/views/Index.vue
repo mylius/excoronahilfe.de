@@ -74,7 +74,7 @@
               <h2 class="text-center title">Schreibe uns</h2>
               <h4
                 class="text-center description"
-              >Falls du Fragen oder Anregungen, melde dich bei uns:</h4>
+              >Melde dich bei uns!</h4>
               <form class="contact-form" @submit.prevent="submit">
                 <div class="md-layout">
                   <div class="md-layout-item md-size-50">
@@ -98,12 +98,8 @@
                   </div>
                 </div>
                 <md-field>
-                  <label>Betreff</label>
-                  <md-input type="text" name="subject" id="subject" required v-model="message.subject"></md-input>
-                </md-field>
-                <md-field>
                   <label>Deine Postleitzahl</label>
-                  <md-input type="text" name="zip" id="zip" v-model="message.zip"></md-input>
+                  <md-input type="text" pattern="\d*" name="zip" id="zip" maxlength=5 v-model="message.zip"></md-input>
                 </md-field>
                 <md-checkbox v-model="message.interests" value="Besuchsdienste">
                   Besuchsdienste
@@ -140,6 +136,18 @@
                   Die Nachricht wurde erfolgreich gesendet.
                 </div>
               </div>
+               <div class="alert alert-danger" v-if="error">
+                <div class="container">
+                  <button type="button" aria-hidden="true" class="close" @click="event => removeNotify(event,'alert-success')">
+                    <md-icon>clear</md-icon>
+                  </button>
+                  <div class="alert-icon">
+                    <md-icon>check</md-icon>
+                  </div>
+
+                  Es ist an unserem Ende etwas schiefgegangen, nutze bitte <a href="mailto:info@excoronahilfe.de">info@excoronahilfe.de</a>
+                </div>
+              </div>
               </form>
              
             </div>
@@ -151,7 +159,7 @@
 </template>
 
 <script>
-const API_URL = "http://localhost:4000/email";
+const API_URL = "https://localhost:4000/email";
 const API_CASE_NUMBER_URL = "https://corona.lmao.ninja/countries/Germany";
 import axios from "axios";
 var emailRegExp = /[a-z0-9!#$%&'*+/=?^_‘{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_‘{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
@@ -172,13 +180,13 @@ export default {
       message: {
         name: "",
         email: "",
-        subject: "",
         text: "",
         interests: [],
         zip: "",
       },
       casenumber: 15000,
       submitted: false, 
+      error: false,
     };
   },
   computed: {
@@ -198,8 +206,13 @@ export default {
         headers: {
           "content-type": "application/json"
         }
-      })
-      this.submitted = true;
+      }
+      ).then(response => { 
+        this.submitted = true;
+      }).catch(error => {
+        this.error = true;
+      });
+      
 
     },
     retrieve_data: function() {

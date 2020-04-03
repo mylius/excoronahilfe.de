@@ -1,8 +1,9 @@
 {
-  "name": "vue-material-kit",
-  "author": "Creative Tim https://www.creative-tim.com/",
-  "description": "Vue Material Kit",
+  "name": "excoronahilfe.de",
+  "author": "j-g",
+  "description": "excoronahilfe.de using Vue Material Kit",
   "version": "1.2.2",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --open",
