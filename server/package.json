@@ -1,5 +1,6 @@
 {
   "name": "excorona_server",
+  "author": "j-g",
   "version": "1.0.0",
   "description": "The server to handle the task of the excorona site",
   "main": "index.js",
@@ -23,6 +24,5 @@
     "dev": "nodemon index.js",
     "start": "node index.js"
   },
-  "author": "",
   "license": "ISC"
 }

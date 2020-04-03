@@ -6,18 +6,25 @@ const nodemailer = require("nodemailer");
 const sgTransport = require("nodemailer-sendgrid-transport");
 const app = express();
 const dotenv = require('dotenv').config();
+const https = require('https');
+const fs = require('fs');
+const port = 4000;
+
+
+const https_options = {
+  key: fs.readFileSync('./security/privkey1.pem'),
+  cert: fs.readFileSync('./security/cert1.pem')
+};
 
 app.use(morgan("tiny"));
 app.options('*', cors()) // include before other routes 
 app.use(cors())
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
-  res.json({
-    message: "Behold The MEVN Stack!"
-  });
-});
 
+app.get('/', (req, res) => {
+  res.send("IT'S WORKING!")
+})
 
 //Send email
 var options = {
@@ -34,8 +41,8 @@ app.post("/email", (req, res) => {
     mailOptions = {
       from: req.body.name + " from <" + req.body.email + ">",
       to: "info@excoronahilfe.de",
-      subject: req.body.subject,
-      text: req.body.text
+      subject: "Anfrage von "+ req.body.name,
+      text: "Der Schreibende ist an folgendem interessiert: " + req.body.interests +"\n\n\nDie Nachricht ist:\n\n" + req.body.text
     }
   
     transporter.sendMail(mailOptions, function (error, info) {
@@ -45,16 +52,13 @@ app.post("/email", (req, res) => {
         console.log("Email sent: " + info.response);
       }
     });
+  res.status(204).send();
 });
 
 //Routes
 
 
-const port = process.env.PORT || 4000;
-app.listen(port, () => {
-  console.log(`listening on ${port}`);
-});
-
-
-
-
+const server = https.createServer(https_options, app)
+    .listen(port, () => {
+        console.log('server running at ' + port)
+    })
