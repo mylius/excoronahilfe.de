@@ -8,9 +8,13 @@
            <br/>
            <br/>
             <h4>
-              Das Covid-19-Virus hat sich weltweit schnell ausgebreitet und lähmt das soziale und wirtschaftliche Leben. Wir wollen aber nicht im Stillstand verharren und dem Pessimismus verfallen. Wir schauen in die Zukunft und wollen Kraft spenden. Es gibt zu diesem Zeitpunkt bereits sehr viele Menschen die eine Covid-19 Infektion überstanden haben - Tendenz steigend! Tatsächlich sind weltweit fast ein Viertel aller ehemals an Covid-19 Erkrankten schon wieder genesen. In Deutschland gibt es bereits {{casenumber}} Genesene, natürlich auch hier Tendenz zügig steigend.<sup><a href="https://coronavirus.jhu.edu/map.html" style="color:white;">1</a></sup> In Zukunft werden die Zahlen der wieder gesundeten und bestätigt immunisierten Menschen sehr stark ansteigen. Wir nehmen dies als Motivation um optimistisch in die nahe Zukunft zu schauen.
-              <br />Wir suchen von einer Corona-Infektion gesundete und immunisierte Menschen, die ihre Kräfte einsetzen möchten, um Menschen aus Risikogruppen und in Quarantäne lebend zu helfen. Wir wollen uns mit euch organisieren und planen:
-              Unser Aufruf richte sich an alle Menschen die vom Coronavirus (COVID-19) genesen sowie immunisiert sind und helfen möchten.
+              Wir haben die Initiative ExCoronaHilfe Deutschland gegründet, und bauen <b>ein Netzwerk von Covid-19 Gesundeten</b> auf, die jetzt immun sind. Wir leisten Hilfe, Beratung und Vermittlung, damit ihr besonders effektiv helfen können. Mach mit und lasst uns gemeinsam helfen!
+              <br />
+              <br />
+              Das Covid-19-Virus hat sich weltweit schnell ausgebreitet und lähmt das soziale und wirtschaftliche Leben. Wir wollen aber nicht im Stillstand verharren und dem Pessimismus verfallen. Wir schauen in die Zukunft und wollen Kraft spenden. Es gibt zu diesem Zeitpunkt bereits sehr viele Menschen die eine Covid-19 Infektion überstanden haben - Tendenz steigend! Tatsächlich sind weltweit fast ein Viertel aller ehemals an Covid-19 Erkrankten schon wieder genesen. <b>In Deutschland gibt es bereits {{casenumber}} Genesene, natürlich auch hier Tendenz rapide steigend.</b><sup><a href="https://coronavirus.jhu.edu/map.html" style="color:white;">1</a></sup> In Zukunft werden die Zahlen der wieder gesundeten und bestätigt immunisierten Menschen sehr stark ansteigen. Wir nehmen dies als Motivation um optimistisch in die nahe Zukunft zu schauen. Wir wollen gestärkt aus der Erfahrung die Krankheit überwunden zu haben hervorgehen und Hoffnung und Zuversicht spenden, dass wir auch die Krise als Ganzes meistern.
+              <br />
+              <br />
+              <b>Wir suchen von einer Corona-Infektion gesundete und immunisierte Menschen, die ihre Kräfte einsetzen möchten, Menschen aus Risikogruppen und in Quarantäne lebend zu helfen, sowie für eine Plasmaspende zur Passiven Immunisierung von Schwererkrankten zur Verfügung zu stehen.</b> Nach derzeitigen Erkenntnissen haben Ex-Patient*innen nach der Abheilung eine mittelfristige Immunität gegen eine Neuinfektion aufgebaut und sind so auch nicht mehr infektiös und gefährdend für andere. Unser Aufruf richte sich an alle Menschen die vom Coronavirus (COVID-19) genesen sowie immunisiert sind und helfen möchten.
             </h4>
             <br />
           </div>
@@ -94,13 +98,31 @@
                   </div>
                 </div>
                 <md-field>
-                      <label>Betreff</label>
-                      <md-input type="text" name="subject" id="subject" required v-model="message.subject"></md-input>
-                    </md-field>
-                <md-field maxlength="5">
+                  <label>Betreff</label>
+                  <md-input type="text" name="subject" id="subject" required v-model="message.subject"></md-input>
+                </md-field>
+                <md-field>
+                  <label>Deine Postleitzahl</label>
+                  <md-input type="text" name="zip" id="zip" v-model="message.zip"></md-input>
+                </md-field>
+                <md-checkbox v-model="message.interests" value="Besuchsdienste">
+                  Besuchsdienste
+                </md-checkbox>
+                <md-checkbox v-model="message.interests" value="Hilfseinsätze">
+                  Hilfseinsätze
+                </md-checkbox>
+                <md-checkbox v-model="message.interests" value="Peer-Beratung">
+                  Peer-Beratung
+                </md-checkbox>
+                <md-checkbox v-model="message.interests" value="Mitmachen im Organisationsteam">
+                  Mitmachen im Organisationsteam
+                </md-checkbox>
+                <md-field>
                   <label>Deine Nachricht</label>
                   <md-textarea v-model="message.text"></md-textarea>
                 </md-field>
+  
+
                 <div class="md-layout">
                   <div class="md-layout-item md-size-33 mx-auto text-center">
                     <md-button class="md-success" type="submit" value="Send Form">Abschicken</md-button>
@@ -140,18 +162,6 @@ export default {
       type: String,
       default: require("@/assets/img/bg8.webp")
     },
-    teamImg1: {
-      type: String,
-      default: require("@/assets/img/faces/avatar.jpg")
-    },
-    teamImg2: {
-      type: String,
-      default: require("@/assets/img/faces/christian.jpg")
-    },
-    teamImg3: {
-      type: String,
-      default: require("@/assets/img/faces/kendall.jpg")
-    }
   },
   async beforeMount() {
     await this.retrieve_data();
@@ -164,9 +174,10 @@ export default {
         email: "",
         subject: "",
         text: "",
-        loaded: false,
-        casenumber: 15000,
+        interests: [],
+        zip: "",
       },
+      casenumber: 15000,
       submitted: false, 
     };
   },
@@ -195,7 +206,6 @@ export default {
       this.loading = true;
       return axios.get(API_CASE_NUMBER_URL).then(response => {
       this.casenumber = response.data.recovered;
-      this.loaded = true;
       });
     },
     // validate by type and value

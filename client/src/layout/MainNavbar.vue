@@ -8,7 +8,6 @@
   >
     <div class="md-toolbar-row md-collapse-lateral">
       <div class="md-toolbar-section-start" height="20px">
-        <a href="/"><img src="@/assets/img/heales.svg" alt="Heales" height="10px"></a>
         <a href="/"><img src="@/assets/img/ex_corona_hilfe.svg" alt="ExCorona Hilfe" class="svg"></a>
       </div>
       <div class="md-toolbar-section-end">
@@ -93,10 +92,6 @@ export default {
       extraNavClasses: "",
       toggledClass: false,
       loggedin: true,
-      av_img: {
-        type: String,
-        default: require("@/assets/img/faces/marc.jpg")
-      }
     };
   },
   computed: {
