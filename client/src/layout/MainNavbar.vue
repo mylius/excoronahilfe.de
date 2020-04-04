@@ -34,11 +34,17 @@
                 <p>Über das Projekt</p>
               </md-list-item>
               <md-list-item
+                href="#/aboutus"
+              > 
+                <p>Über uns</p>
+              </md-list-item>
+              <md-list-item
                 href="#/faq"
               > 
                 <i class="material-icons">help</i>
                 <p>FAQ</p>
               </md-list-item>
+
             </md-list>
           </div>
         </div>

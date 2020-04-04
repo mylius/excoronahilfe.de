@@ -32,7 +32,7 @@
                   <div class="icon icon-success">
                     <md-icon>emoji_people</md-icon>
                   </div>
-                  <h4 class="info-title">Hilfe</h4>
+                  <h4 class="info-title">Hilfe</h4> 
                   <p>Wir vermitteln Besuchsdienste für isolierte Menschen, die unter Quarantäne stehen.</p>
                 </div>
               </div>
@@ -159,7 +159,7 @@
 </template>
 
 <script>
-const API_URL = "https://localhost:4000/email";
+const API_URL = "https://excoronahilfe.de:4000/email";
 const API_CASE_NUMBER_URL = "https://corona.lmao.ninja/countries/Germany";
 import axios from "axios";
 var emailRegExp = /[a-z0-9!#$%&'*+/=?^_‘{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_‘{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;

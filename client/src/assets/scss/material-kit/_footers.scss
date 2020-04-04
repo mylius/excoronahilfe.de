@@ -4,6 +4,17 @@ footer{
     nav,
     .copyright{
       display: inline-block;
+      min-height: 100px;
+      width:100%;
+    }
+
+    .legal{
+        float:left;
+    }
+
+    .social{
+        box-sizing: border-box;
+        float:right;
     }
 
     ul{
@@ -45,6 +56,16 @@ footer{
             width: auto !important;
             min-width: auto !important;
 
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+    
+        .legal{
+            float:none;
+        }
+        .social{
+            float:none;
         }
     }
 }

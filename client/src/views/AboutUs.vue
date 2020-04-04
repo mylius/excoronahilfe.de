@@ -33,7 +33,7 @@
                 <br />
                 Alexander Tietz-Latza, Sebastian Stölting
                 <br />
-                Vicky, Matthias Eisner
+                Matthias Eisner
                 <br/>
                 <br/>
                 ExCoronaHilfe Deutschland ist eine Initiative der gemeinnützigen Gesellschaft für Gesundes Altern und Prävention e.V. 
@@ -42,20 +42,19 @@
           <div class="md-layout">
             <div class="md-layout-item md-medium-size-33 md-small-size-100">
               <div class="info">
-                <img src="@/assets/img/people/Alexander.jpeg" alt="Alexander">
+                <img src="@/assets/img/people/Alexander.webp" alt="Alexander">
                 <h4 class="info-title">Alexander</h4>
               </div>
             </div>
-            
             <div class="md-layout-item md-medium-size-33 md-small-size-100">
               <div class="info">
-                <img src="@/assets/img/people/Sebastian.jpg" alt="Sebastian">
+                <img src="@/assets/img/people/Sebastian.webp" alt="Sebastian">
                 <h4 class="info-title">Sebastian</h4>
               </div>
             </div>
             <div class="md-layout-item md-medium-size-33 md-small-size-100">
               <div class="info">
-                <img src="@/assets/img/people/Matthias.jpg" alt="Matthias">
+                <img src="@/assets/img/people/Matthias.webp" alt="Matthias">
                 <h4 class="info-title">Matthias</h4>
               </div>
             </div>
@@ -65,6 +64,7 @@
     </div>
   </div>
 </template>
+
 
 <script>
 export default {
