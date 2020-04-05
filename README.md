@@ -6,14 +6,14 @@ Make sure you have nodejs installed:
 
   For distros using pacman: 
   
-    ```pacman -S nodejs npm```
+  ```pacman -S nodejs npm```
     
   Distros using apt-get:
   
-    ```
-    curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
-    sudo apt-get install -y nodejs
-    ```
+  ```
+  curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
+  sudo apt-get install -y nodejs
+  ```
 
 For the client, run the following in a terminal :
 ```
