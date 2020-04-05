@@ -5,3 +5,4 @@
 /server/.htaccess
 /server/run.sh
 /server/security/
+/server/config/keys.js
