@@ -1,0 +1,30 @@
+Zum Starten der Website tue folgendes:
+
+0.  Starte visual studio code. Gehe über file -> "open recent" auf excoronahilfe.de
+1.  Klicke auf terminal -> new terminal
+2.  Gebe git pull ein. (Neuste änderungen werden runtergeladen.)
+3.  Gebe "cd client" ein.
+4.  Gebe "npm run serve" ein.
+
+Die dateien findest du in client -> src -> views
+Wenn du fertig gearbeitet hast:
+
+1.  Gebe im terminal "git add ." ein.
+2.  gebe im terminal "git commit -m $Beschreibung" ein wobei du beschreibung durch einen Text der erklärt was du gemacht hast ersetzt.
+    Der Text muss in Anführungszeichen sein.
+3.  Gebe "git push"
+4.  Du wirst nach Anmeldedaten gefragt, dies sind die Daten für deinen Github Account.
+5.  Sage mir bescheid, dass du was geändert hast, dann lade ich es hoch. Dies geschieht zur Zeit nicht automatisch.
+
+Lade deine Änderungen Zeit nah hoch, es ist nicht schlimm, wenn du nicht fertig geworden bist.
+Wenn du wartest kann es passieren, dass jemand anderes etwas hochlädt und dann wird es komplizierter.
+
+
+Grundlegende Formatierungen:
+Zeilenumbruch: <br /> 
+Fett: <b>Fettzuschreibender text</b>
+Überschrift 1:<h1 class="title">Überschrift1</h1>
+Überschrift 2:<h2 class="title">Überschrift2</h2>
+...
+Link: <a href="$URL">Linktext</a>
+Hochgestellter Text: <sup>hochgestelleter Text</sup>
