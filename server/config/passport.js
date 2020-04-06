@@ -121,14 +121,11 @@ passport.use('local', new LocalStrategy({
       email: email
     }).then(currentUser => {
       if (currentUser) {
-        bcrypt.compare(password, currentUser.password, (err, isMatch) => {
-          if (err) throw err;
-          if (isMatch) {
+         if (bcrypt.compare(password, currentUser.password)){
             return done(null, currentUser);
           } else {
             return done(null, false, { message: 'Password incorrect' });
           }
-        });
       }
       else {  
         var newUser = new User();
