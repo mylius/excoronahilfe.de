@@ -1,4 +1,4 @@
-const LocalStrategy = require('passport-local').Strategy;
+const LocalStrategy = require('passport-local');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20');
 const TwitterStrategy = require('passport-twitter');
@@ -53,12 +53,12 @@ passport.use("google", new GoogleStrategy({
   )
 );
 
-passport.use(new TwitterStrategy({
+passport.use("twitter", new TwitterStrategy({
   consumerKey: keys.twitter.consumerKey,
   consumerSecret: keys.twitter.consumerSecret,
   callbackURL: "/auth/twitter/redirect",
   userProfileURL  : 'https://api.twitter.com/1.1/account/verify_credentials.json?include_email=true',
-  passReqToCallback : true,
+  profileFields: ['id', 'displayName', 'username', 'photos', '_json'],
 },
 function(token, tokenSecret, profile, done) {
   User.findOne({ twitterID: profile.id_str }).then((currentUser) => {
@@ -68,13 +68,12 @@ function(token, tokenSecret, profile, done) {
       done(null,currentUser);
     } else {
       new User({
-        name: profile.screen_name,
-        firstname: profile.name,
+        name: profile.username,
+        firstname: profile.displayName,
         twitterID: profile.id_str,
         email: profile.emails[0].value,
-        picture: profile.photos[0].value,
+        picture: profile.photos[0].value, 
       }).save().then((newUser) => {
-        console.log(profile);
         console.log("new user created: " + newUser);
         done(null,newUser);
       })
@@ -84,12 +83,11 @@ function(token, tokenSecret, profile, done) {
 )
 );
 
-passport.use(new FacebookStrategy({
+passport.use("facebook", new FacebookStrategy({
   clientID: keys.facebook.consumerKey,
   clientSecret: keys.facebook.consumerSecret,
   callbackURL: "/auth/facebook/redirect",
-  passReqToCallback : true,
-  profileFields: ['id', 'emails', 'name']
+  profileFields: ['id', 'displayName', 'emails', 'photos'],
 },
 function(accessToken, refreshToken, profile, done) {
   User.findOne({ facebookID: profile.id }).then((currentUser) => {
@@ -106,7 +104,6 @@ function(accessToken, refreshToken, profile, done) {
         email: profile.emails[0].value,
         picture: profile.photos[0].value,
       }).save().then((newUser) => {
-        console.log(profile);
         console.log("new user created: " + newUser);
         done(null,newUser);
       })
@@ -115,25 +112,35 @@ function(accessToken, refreshToken, profile, done) {
   }
 ));
 
-passport.use("local", new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
-    // Match user
+passport.use('local', new LocalStrategy({
+  usernameField: "email",
+  passwordField: "password"
+},
+  function(email, password, done) {
     User.findOne({
       email: email
-    }).then(user => {
-      if (!user) {
-        return done(null, false, { message: 'That email is not registered' });
+    }).then(currentUser => {
+      if (currentUser) {
+        bcrypt.compare(password, currentUser.password, (err, isMatch) => {
+          if (err) throw err;
+          if (isMatch) {
+            return done(null, currentUser);
+          } else {
+            return done(null, false, { message: 'Password incorrect' });
+          }
+        });
       }
-
-      // Match password
-      bcrypt.compare(password, user.password, (err, isMatch) => {
-        if (err) throw err;
-        if (isMatch) {
-          return done(null, user);
-        } else {
-          return done(null, false, { message: 'Password incorrect' });
+      else {  
+        var newUser = new User();
+        newUser.email = email;
+        newUser.password = password;
+        newUser.save().then((newUser) => {
+          console.log("new user created: " + newUser);
+          done(null,newUser);
+            })
         }
       });
-    });
-  }),
+    }
+  ),
 );
 

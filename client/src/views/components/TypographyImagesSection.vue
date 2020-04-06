@@ -201,7 +201,6 @@
 export default {
   data() {
     return {
-      image: require("@/assets/img/faces/avatar.jpg"),
       responsive: false
     };
   },

@@ -24,6 +24,29 @@
     <div class="main main-raised">
       <div class="section">
         <div class="container">
+          <div class="md-layout">
+            <div class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center">
+              <h2 class="title text-center">Unsere Helfer</h2>
+            </div>
+          </div>
+        </div>
+        <l-map :zoom="zoom" :center="center" style="height: 500px;">
+          <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
+        </l-map>
+        <br />
+        <div class="container">
+          <div class="md-layout">
+            <div class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center">
+              Melde dich an und helfe anderen!
+              <br />
+              <md-button class="md-success" href="/Login">Anmelden</md-button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="container">
           <div class="features text-center">
             <h2 class="title text-center">Was wir tun</h2>
             <div class="md-layout">
@@ -187,6 +210,11 @@ export default {
       casenumber: 15000,
       submitted: false, 
       error: false,
+      zoom: 5,
+      center: L.latLng(52.01010101, 10.24178344),
+        url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
+      attribution:
+        '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     };
   },
   computed: {

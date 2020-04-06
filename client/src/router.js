@@ -1,16 +1,21 @@
 import Vue from "vue";
 import Router from "vue-router";
-import AboutUs from "./views/AboutUs.vue";
 import Index from "./views/Index.vue";
-import Impressum from "./views/Impressum.vue";
-import Privacy from "./views/Privacy.vue";
+import AboutUs from "./views/AboutUs.vue";
 import FAQ from "./views/FAQ.vue";
+import Impressum from "./views/Impressum.vue";
+import Login from "./views/Login.vue";
+import Profile from "./views/Profile.vue";
+import Privacy from "./views/Privacy.vue";
+import Requests from "./views/Requests.vue";
+import Register from "./views/Register.vue";
 import MainNavbar from "./layout/MainNavbar.vue";
 import MainFooter from "./layout/MainFooter.vue";
 
 Vue.use(Router);
 
 export default new Router({
+  mode: "history",
   routes: [
     {
       path: "/",
@@ -22,17 +27,9 @@ export default new Router({
       }
     },
     {
-      path: "/impressum",
-      name: "impressum",
-      components: { default: Impressum, header: MainNavbar, footer: MainFooter },
-      props: {
-        header: { colorOnScroll: 400 },
-      }
-    },
-    {
-      path: "/privacy",
-      name: "privacy",
-      components: { default: Privacy, header: MainNavbar, footer: MainFooter },
+      path: "/about",
+      name: "about",
+      components: { default: AboutUs, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
       }
@@ -46,9 +43,51 @@ export default new Router({
       }
     },
     {
-      path: "/aboutus",
-      name: "aboutus",
-      components: { default: AboutUs, header: MainNavbar, footer: MainFooter },
+      path: "/impressum",
+      name: "impressum",
+      components: { default: Impressum, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+      }
+    },
+    {
+      path: "/login",
+      name: "login",
+      components: { default: Login, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 }
+      }
+    },
+    {
+      path: "/profile",
+      name: "profile",
+      components: { default: Profile, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+
+    {
+      path: "/privacy",
+      name: "privacy",
+      components: { default: Privacy, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+      }
+    },
+    {
+      path: "/requests",
+      name: "Requests",
+      components: { default: Requests, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+      }
+    },
+    {
+      path: "/register",
+      name: "Register",
+      components: { default: Register, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
       }

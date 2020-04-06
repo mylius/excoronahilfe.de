@@ -290,10 +290,6 @@ export default {
       type: String,
       default: require("@/assets/img/bg.jpg")
     },
-    img: {
-      type: String,
-      default: require("@/assets/img/faces/avatar.jpg")
-    }
   },
   computed: {
     bgImage() {

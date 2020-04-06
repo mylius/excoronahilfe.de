@@ -17,12 +17,15 @@ import App from "./App.vue";
 import router from "./router";
 import MaterialKit from "./plugins/material-kit";
 import {Pagination,ResultItem} from '@/components';
+import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 
 Vue.component(ResultItem);
 Vue.component('pagination', Pagination);
-
+Vue.component('l-map', LMap);
+Vue.component('l-tile-layer', LTileLayer);
+Vue.component('l-marker', LMarker);
 
 Vue.config.productionTip = false;
 

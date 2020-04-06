@@ -11,12 +11,8 @@ router.post('/register', (req, res) => {
     const { name, email, password, password2 } = req.body;
     let errors = [];
   
-    if (!name || !email || !zip || !password || !password2) {
+    if (!email || !password) {
       errors.push({ msg: 'Please enter all fields' });
-    }
-  
-    if (password != password2) {
-      errors.push({ msg: 'Passwords do not match' });
     }
   
     if (password.length < 8) {
@@ -37,14 +33,11 @@ router.post('/register', (req, res) => {
           errors.push({ msg: 'Email already exists' });
           res.render('register', {
             errors,
-            name,
             email,
             password,
-            password2
           });
         } else {
           const newUser = new User({
-            name,
             email,
             password
           });

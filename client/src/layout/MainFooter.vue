@@ -18,6 +18,11 @@
                 Datenschutzerklärung
               </a>
             </li>
+            <li>
+              <a href="#/aboutus">
+               Über uns
+              </a>
+            </li>
           </ul>
         </div>
         <div class="social">

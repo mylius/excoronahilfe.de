@@ -7,8 +7,8 @@
     :color-on-scroll="colorOnScroll"
   >
     <div class="md-toolbar-row md-collapse-lateral">
-      <div class="md-toolbar-section-start" height="20px">
-        <a href="/"><img src="@/assets/img/ex_corona_hilfe.svg" alt="ExCorona Hilfe" class="svg"></a>
+      <div class="md-toolbar-section-start">
+        <a href="/"><img src="@/assets/img/ex_corona_hilfe.svg" class="svg"></a>
       </div>
       <div class="md-toolbar-section-end">
         <md-button
@@ -28,23 +28,83 @@
             </mobile-menu>
             <md-list>
               <md-list-item
-                href="#/"
+                href="/"
               > 
                 <i class="material-icons">content_paste</i>
                 <p>Über das Projekt</p>
               </md-list-item>
               <md-list-item
-                href="#/aboutus"
-              > 
-                <p>Über uns</p>
-              </md-list-item>
-              <md-list-item
-                href="#/faq"
+                href="/faq"
               > 
                 <i class="material-icons">help</i>
                 <p>FAQ</p>
               </md-list-item>
 
+              <md-list-item href="/requests" @click="scrollToElement()">
+                <p>Gesuche</p>
+              </md-list-item>
+
+              <md-list-item href="javascript:void(0)" @click="scrollToElement()">
+                <p>Angebote</p>
+              </md-list-item>
+
+              <md-list-item>
+                <md-field v-if="!loggedin">
+                  <label>Your Name</label>
+                  <md-input v-model="name" type="text"></md-input>
+                </md-field>
+              </md-list-item>
+              <md-list-item>
+                <md-field v-if="!loggedin">
+                  <label>Password</label>
+                  <md-input v-model="name" type="password"></md-input>
+                </md-field>
+              </md-list-item>
+                <li class="md-list-item"  v-if="loggedin">
+                  <a
+                    href="javascript:void(0)"
+                    class="md-list-item-router md-list-item-container md-button-clean"
+                  >
+                    <div class="md-list-item-content">
+                      <md-button class="md-rose md-just-icon md-round">
+                        <md-icon>email</md-icon>
+                      </md-button>
+                    </div>
+                  </a>
+                </li>
+
+                <li class="md-list-item" v-if="loggedin">
+                  <a
+                    href="javascript:void(0)"
+                    class="md-list-item-router md-list-item-container md-button-clean dropdown"
+                  >
+                    <div class="md-list-item-content">
+                      <drop-down direction="down" class="profile-photo">
+                        <div
+                                class="profile-photo-small"
+                                slot="title"
+                                data-toggle="dropdown"
+                              >
+                        <md-button class="md-just-icon md-round">
+                          <md-icon>person</md-icon>
+                        </md-button>
+                        </div>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                          <li class="dropdown-header"></li>
+                          <li>
+                            <a href="#pablo" class="dropdown-item">Profil</a>
+                          </li>
+                          <li>
+                            <a href="#pablo" class="dropdown-item">Einstellungen</a>
+                          </li>
+                          <li>
+                            <a href="#pablo" class="dropdown-item">Abmelden</a>
+                          </li>
+                        </ul>
+                      </drop-down>
+                    </div>
+                  </a>
+                </li>
             </md-list>
           </div>
         </div>
