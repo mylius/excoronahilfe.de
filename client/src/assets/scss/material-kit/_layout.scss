@@ -1,4 +1,11 @@
 .md-layout-item{
   padding-right: 15px;
   padding-left: 15px;
+
+  .label{
+    font-weight: 400;
+    font-size: .875rem;
+    color: #aaa;
+    padding-left: 10px;
+  }
 }

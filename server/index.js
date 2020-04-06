@@ -42,7 +42,7 @@ app.post("/email", (req, res) => {
       from: req.body.name + " from <" + req.body.email + ">",
       to: "info@excoronahilfe.de",
       subject: "Anfrage von "+ req.body.name,
-      text: "Der Schreibende ist an folgendem interessiert: " + req.body.interests +"\n\n\nDie Nachricht ist:\n\n" + req.body.text
+      text: "Der Schreibende ist an folgendem interessiert: " + req.body.interests +"\n\n\nDie Nachricht ist:\n\n" + req.body.text + "\n\n\n Der Nutzer hat den Datenschutz bestimmungen zugestimmt: " + req.body.privacy_accepted
     }
   
     transporter.sendMail(mailOptions, function (error, info) {

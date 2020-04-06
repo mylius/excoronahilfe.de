@@ -110,9 +110,15 @@
                 <md-checkbox v-model="message.interests" value="Peer-Beratung">
                   Peer-Beratung
                 </md-checkbox>
+                <md-checkbox v-model="message.interests" value="Blutspende">
+                  Blutspende
+                </md-checkbox>
                 <md-checkbox v-model="message.interests" value="Mitmachen im Organisationsteam">
                   Mitmachen im Organisationsteam
                 </md-checkbox>
+                <br />
+                <md-checkbox id="priv" v-model="message.interests" required value="Datenschutz akzieptiert"></md-checkbox>
+                <label for="priv" style=" font-weight: 400;  font-size: .875rem; color: #aaa; margin-left:-5px">Hier mit erkläre ich mich mit den  </label><a href="#/privacy"  style=" font-weight: 400;  font-size: .875rem;" target="_blank">Datenschutz</a><label for="priv"  style=" font-weight: 400;  font-size: .875rem; color: #aaa;"> bestimmungen einverstanden.</label>
                 <md-field>
                   <label>Deine Nachricht</label>
                   <md-textarea v-model="message.text"></md-textarea>
@@ -182,6 +188,7 @@ export default {
         email: "",
         text: "",
         interests: [],
+        privacy_accepted: false,
         zip: "",
       },
       casenumber: 15000,
