@@ -117,7 +117,7 @@
                   Mitmachen im Organisationsteam
                 </md-checkbox>
                 <br />
-                <md-checkbox id="priv" v-model="message.interests" required value="Datenschutz akzieptiert"></md-checkbox>
+                <md-checkbox id="priv" v-model="message.privacy_accepted" required></md-checkbox>
                 <label for="priv" style=" font-weight: 400;  font-size: .875rem; color: #aaa; margin-left:-5px">Hier mit erkläre ich mich mit den  </label><a href="#/privacy"  style=" font-weight: 400;  font-size: .875rem;" target="_blank">Datenschutz</a><label for="priv"  style=" font-weight: 400;  font-size: .875rem; color: #aaa;"> bestimmungen einverstanden.</label>
                 <md-field>
                   <label>Deine Nachricht</label>

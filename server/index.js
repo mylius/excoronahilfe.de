@@ -28,21 +28,22 @@ app.get('/', (req, res) => {
 
 //Send email
 var options = {
+  service: "SendGrid",
   auth: {
-    api_user: process.env.SG_API_USER,
-    api_key: process.env.SG_API_KEY  
+    user: process.env.SG_API_USER,
+    pass: process.env.SG_API_KEY  
   }
 };
 
-var transporter = nodemailer.createTransport(sgTransport(options));
+var transporter = nodemailer.createTransport(options);
 
 app.post("/email", (req, res) => {
   console.log(req.body);
     mailOptions = {
       from: req.body.name + " from <" + req.body.email + ">",
-      to: "info@excoronahilfe.de",
+      to: "info@excoronahilfe.dec",
       subject: "Anfrage von "+ req.body.name,
-      text: "Der Schreibende ist an folgendem interessiert: " + req.body.interests +"\n\n\nDie Nachricht ist:\n\n" + req.body.text + "\n\n\n Der Nutzer hat den Datenschutz bestimmungen zugestimmt: " + req.body.privacy_accepted
+      text: "Der Schreibende ist an folgendem interessiert: " + req.body.interests + "\n\n\nEr wohnt im PLZ-Gebiet: " + req.body.zip + "\n\n\nDie Nachricht ist:\n\n" + req.body.text + "\n\n\n Der Nutzer hat den Datenschutz bestimmungen zugestimmt: " + req.body.privacy_accepted
     }
   
     transporter.sendMail(mailOptions, function (error, info) {
