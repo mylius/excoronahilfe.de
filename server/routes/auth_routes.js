@@ -33,8 +33,6 @@ router.get("/facebook/redirect",passport.authenticate("facebook"),(req,res) => {
 //auth with local
 router.post("/local", (req, res, next) => {
     passport.authenticate("local", (err, user, info) => {
-        console.log("test")
-        console.log(info)
         if (err) {
             return next(err);
         }
@@ -45,7 +43,7 @@ router.post("/local", (req, res, next) => {
         console.log(user)
         req.login(user, err => {
 
-            res.send("Logged in");
+            res.send(user);
         });
     })(req, res, next);
   });

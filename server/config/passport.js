@@ -117,6 +117,7 @@ passport.use('local', new LocalStrategy({
   passwordField: "password"
 },
   function(email, password, done) {
+    console.log(password)
     User.findOne({
       email: email
     }).then(currentUser => {
@@ -130,7 +131,7 @@ passport.use('local', new LocalStrategy({
       else {  
         var newUser = new User();
         newUser.email = email;
-        newUser.password = password;
+        newUser.password = newUser.generateHash(password);
         newUser.save().then((newUser) => {
           console.log("new user created: " + newUser);
           done(null,newUser);

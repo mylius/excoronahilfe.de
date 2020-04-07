@@ -100,7 +100,7 @@ export default {
       console.log(this.user_data)
       this.submitted = true;
     },
-    hashPass: function(password) {
+    hashPass: function() {
       return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
     }
   },
