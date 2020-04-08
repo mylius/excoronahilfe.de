@@ -161,7 +161,7 @@
               </div>
                <div class="alert alert-danger" v-if="error">
                 <div class="container">
-                  <button type="button" aria-hidden="true" class="close" @click="event => removeNotify(event,'alert-success')">
+                  <button type="button" aria-hidden="true" class="close" @click="event => removeNotify(event,'alert-danger')">
                     <md-icon>clear</md-icon>
                   </button>
                   <div class="alert-icon">
@@ -262,6 +262,13 @@ export default {
     // check or uncheck all
     checkAll: function(event) {
       this.selection.features = event.target.checked ? this.features : [];
+    },
+    removeNotify(e, notifyClass) {
+      var target = e.target;
+      while (target.className.indexOf(notifyClass) === -1) {
+        target = target.parentNode;
+      }
+      return target.parentNode.removeChild(target);
     }
     },
     watch: {

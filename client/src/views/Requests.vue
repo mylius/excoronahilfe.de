@@ -22,11 +22,23 @@
                 v-bind:currentPage="currentPage"
                 v-bind:result="result"
               ></ResultItem>
-              <pagination type="success" v-model="currentPage" :page-count="2"></pagination>
+              </div>
+              <div class = "result-navigation" style="display:inline-block; width:100%">
+                <pagination type="success" style="float:left" v-model="currentPage" :page-count="2"></pagination>
+                <div style="float:right">
+                <div class="result-new" style="float:right">
+                  <router-link :to="{name: 'createentry'}">
+                    <md-button id="new_entry" class="md-success">Neuer Eintrag</md-button>
+                  </router-link>
+                </div>
+
+              </div>
             </div>
+            <br />
+            <br />
+
           </div>
-          <br />
-          <br />
+
           
         </div>
       </div>
@@ -45,7 +57,7 @@ export default {
     },
   },
   components: {
-    ResultItem
+    ResultItem,
   },
   beforeMount: function() {
     this.updateVisibleResults();
@@ -58,7 +70,7 @@ export default {
       currentPage: 0,
       pageSize: 10,
       results: [
-        { id: 1, text: "Foo", dist: 5 },
+        { id: 1, text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.", dist: 5 },
         { id: 2, text: "Bar", dist: 7 },
         { id: 3, text: "Foo1", dist: 5 },
         { id: 4, text: "Bar1", dist: 7 },

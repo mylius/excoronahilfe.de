@@ -19,6 +19,7 @@ import MaterialKit from "./plugins/material-kit";
 import {Pagination,ResultItem} from '@/components';
 import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
 import 'leaflet/dist/leaflet.css';
+import VueCookies from 'vue-cookies'
 
 
 Vue.component(ResultItem);

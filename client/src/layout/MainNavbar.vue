@@ -98,7 +98,7 @@
                             <a href="#pablo" class="dropdown-item">Einstellungen</a>
                           </li>
                           <li>
-                            <a href="#pablo" class="dropdown-item">Abmelden</a>
+                            <a href="https://localhost:4000/auth/logout" class="dropdown-item">Abmelden</a>
                           </li>
                         </ul>
                       </drop-down>
