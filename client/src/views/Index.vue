@@ -163,7 +163,6 @@
                     </div>Die Nachricht wurde erfolgreich gesendet.
                   </div>
                 </div>
-<<<<<<< HEAD
                 <div class="alert alert-danger" v-if="error">
                   <div class="container">
                     <button
@@ -178,16 +177,6 @@
                       <md-icon>check</md-icon>
                     </div>Es ist an unserem Ende etwas schiefgegangen, nutze bitte
                     <a href="mailto:info@excoronahilfe.de">info@excoronahilfe.de</a>
-=======
-              </div>
-               <div class="alert alert-danger" v-if="error">
-                <div class="container">
-                  <button type="button" aria-hidden="true" class="close" @click="event => removeNotify(event,'alert-danger')">
-                    <md-icon>clear</md-icon>
-                  </button>
-                  <div class="alert-icon">
-                    <md-icon>check</md-icon>
->>>>>>> dbb094a9107b5ceffbe69fbf6f80304067374d5c
                   </div>
                 </div>
               </form>
@@ -307,17 +296,6 @@ export default {
     // check or uncheck all
     checkAll: function(event) {
       this.selection.features = event.target.checked ? this.features : [];
-<<<<<<< HEAD
-=======
-    },
-    removeNotify(e, notifyClass) {
-      var target = e.target;
-      while (target.className.indexOf(notifyClass) === -1) {
-        target = target.parentNode;
-      }
-      return target.parentNode.removeChild(target);
-    }
->>>>>>> dbb094a9107b5ceffbe69fbf6f80304067374d5c
     },
     removeNotify(e, notifyClass) {
       var target = e.target;

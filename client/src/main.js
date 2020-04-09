@@ -19,7 +19,6 @@ import MaterialKit from "./plugins/material-kit";
 import {Pagination,ResultItem} from '@/components';
 import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
 import 'leaflet/dist/leaflet.css';
-<<<<<<< HEAD
 import VueCookies from 'vue-cookies';
 
 delete L.Icon.Default.prototype._getIconUrl  
@@ -29,11 +28,6 @@ L.Icon.Default.mergeOptions({
   iconUrl: require('leaflet/dist/images/marker-icon.png'),  
   shadowUrl: require('leaflet/dist/images/marker-shadow.png')  
 })
-=======
-import VueCookies from 'vue-cookies'
-
-
->>>>>>> dbb094a9107b5ceffbe69fbf6f80304067374d5c
 Vue.component(ResultItem);
 Vue.component('pagination', Pagination);
 Vue.component('l-map', LMap);

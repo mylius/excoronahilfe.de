@@ -28,7 +28,6 @@
 
                   <br />
                   <md-field>
-<<<<<<< HEAD
                     <label>Postleitzahl</label>
                     <md-input
                     type="text"
@@ -38,10 +37,6 @@
                     maxlength="5"
                     v-model="entry.zip"
                   ></md-input>
-=======
-                    <label>Title</label>
-                    <md-input type="text" name="title" id="title" required v-model="entry.title"></md-input>
->>>>>>> dbb094a9107b5ceffbe69fbf6f80304067374d5c
                   </md-field>
                   <md-field>
                     <label>Beschreibe kurz, was du möchtest</label>
@@ -56,12 +51,9 @@
                   <md-checkbox v-model="entry.interests" value="Peer-Beratung">
                     Peer-Beratung
                   </md-checkbox>
-<<<<<<< HEAD
                   <md-checkbox v-model="entry.interests" value="Blutspenden">
                     Blutspenden
                   </md-checkbox>
-=======
->>>>>>> dbb094a9107b5ceffbe69fbf6f80304067374d5c
                 </div>
                
   
@@ -83,11 +75,7 @@
                   Der Eintrag wurde erfolgreich angelegt.
                 </div>
               </div>
-<<<<<<< HEAD
               <div class="alert alert-danger" v-if="error">
-=======
-               <div class="alert alert-danger" v-if="error">
->>>>>>> dbb094a9107b5ceffbe69fbf6f80304067374d5c
                 <div class="container">
                   <button type="button" aria-hidden="true" class="close" @click="event => removeNotify(event,'alert-danger')">
                     <md-icon>clear</md-icon>
@@ -99,7 +87,6 @@
                   Es ist an unserem Ende etwas schiefgegangen, informiere uns bitte <a href="mailto:info@excoronahilfe.de">info@excoronahilfe.de</a>
                 </div>
               </div>
-<<<<<<< HEAD
                <div class="alert alert-danger" v-if="wrongzip">
                 <div class="container">
                   <button type="button" aria-hidden="true" class="close" @click="event => removeNotify(event,'alert-danger')">
@@ -112,8 +99,6 @@
                   Dies ist keine gültige Postleitzahl.
                 </div>
               </div>
-=======
->>>>>>> dbb094a9107b5ceffbe69fbf6f80304067374d5c
               </form>
              
             </div>
@@ -125,13 +110,8 @@
 </template>
 
 <script>
-<<<<<<< HEAD
 import DataService from "../services/dataservice";
 const dataservice = new DataService();
-=======
-const NEED_URL = "https://localhost:4000/need/create";
-const OFFER_URL = "https://localhost:4000/offer/create";
->>>>>>> dbb094a9107b5ceffbe69fbf6f80304067374d5c
 import axios from "axios";
 export default {
   bodyClass: "landing-page",
@@ -154,10 +134,7 @@ export default {
       casenumber: 15000,
       submitted: false, 
       error: false,
-<<<<<<< HEAD
       wrongzip: false,
-=======
->>>>>>> dbb094a9107b5ceffbe69fbf6f80304067374d5c
       zoom: 5,
       center: L.latLng(52.01010101, 10.24178344),
         url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
@@ -175,45 +152,19 @@ export default {
   methods: {
     // submit form handler
     async submit() {
-<<<<<<< HEAD
       this.entry.coordinates = await this.zipToCoord(this.entry.zip)
       if (this.entry.receive){
         dataservice.createNeed(this.entry).then(response => { 
           this.submitted = true;
           this.wrongzip = false;
-=======
-      if (this.entry.receive){
-        this.entry.coordinates = await this.zipToCoord(this.entry.zip)
-        axios({
-          url: NEED_URL,
-          method: "POST",
-          data: (this.entry),
-          headers: {
-            "content-type": "application/json"
-          }
-        }).then(response => { 
-          this.submitted = true;
->>>>>>> dbb094a9107b5ceffbe69fbf6f80304067374d5c
         }).catch(error => {
           this.error = true;
         });
       }
       else{
-<<<<<<< HEAD
         dataservice.createOffer(this.entry).then(response => { 
           this.submitted = true;
           this.wrongzip = false; 
-=======
-        axios({
-          url: OFFER_URL,
-          method: "POST",
-          data: (this.entry),
-          headers: {
-            "content-type": "application/json"
-          }
-        }).then(response => { 
-          this.submitted = true;
->>>>>>> dbb094a9107b5ceffbe69fbf6f80304067374d5c
         }).catch(error => {
           this.error = true;
         });
@@ -221,7 +172,6 @@ export default {
 
     },
     async zipToCoord(zip) {
-<<<<<<< HEAD
       console.log("test")
       await axios.get("https://public.opendatasoft.com/api/records/1.0/search/?dataset=postleitzahlen-deutschland&q="+zip).then(response => {
       return response.data.records[0].geometry.coordinates;
@@ -229,13 +179,6 @@ export default {
         this.wrongzip = true;
         return error;
       });
-=======
-      var coords = []
-      await axios.get("https://public.opendatasoft.com/api/records/1.0/search/?dataset=postleitzahlen-deutschland&q="+zip+"&facet=note&facet=plz").then(response => {
-      coords = response.data.records[0].geometry.coordinates;
-      });
-      return coords
->>>>>>> dbb094a9107b5ceffbe69fbf6f80304067374d5c
     },
     removeNotify(e, notifyClass) {
       var target = e.target;
