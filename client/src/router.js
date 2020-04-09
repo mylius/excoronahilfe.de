@@ -2,9 +2,11 @@ import Vue from "vue";
 import Router from "vue-router";
 import Index from "./views/Index.vue";
 import AboutUs from "./views/AboutUs.vue";
+import CreateEntry from "./views/CreateEntry.vue";
 import FAQ from "./views/FAQ.vue";
 import Impressum from "./views/Impressum.vue";
 import Login from "./views/Login.vue";
+import Offers from "./views/Offers.vue";
 import Profile from "./views/Profile.vue";
 import Privacy from "./views/Privacy.vue";
 import Requests from "./views/Requests.vue";
@@ -35,6 +37,14 @@ export default new Router({
       }
     },
     {
+      path: "/createentry",
+      name: "createentry",
+      components: { default: CreateEntry, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+      }
+    },
+    {
       path: "/faq",
       name: "faq",
       components: { default: FAQ, header: MainNavbar, footer: MainFooter },
@@ -54,6 +64,14 @@ export default new Router({
       path: "/login",
       name: "login",
       components: { default: Login, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 }
+      }
+    },
+    {
+      path: "/offers",
+      name: "offers",
+      components: { default: Offers, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 }
       }

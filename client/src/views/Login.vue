@@ -96,11 +96,14 @@ export default {
         headers: {
           "content-type": "application/json"
         }
+      }).then((response) => {
+        console.log(response)
+        console.log($cookies.get("session"))
       })
       console.log(this.user_data)
       this.submitted = true;
     },
-    hashPass: function() {
+    hashPass: function(password) {
       return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
     }
   },

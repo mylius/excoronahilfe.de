@@ -19,8 +19,15 @@ import MaterialKit from "./plugins/material-kit";
 import {Pagination,ResultItem} from '@/components';
 import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
 import 'leaflet/dist/leaflet.css';
+import VueCookies from 'vue-cookies';
 
-
+delete L.Icon.Default.prototype._getIconUrl  
+// eslint-disable-next-line  
+L.Icon.Default.mergeOptions({  
+  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),  
+  iconUrl: require('leaflet/dist/images/marker-icon.png'),  
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png')  
+})
 Vue.component(ResultItem);
 Vue.component('pagination', Pagination);
 Vue.component('l-map', LMap);

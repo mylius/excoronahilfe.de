@@ -44,7 +44,7 @@
                 <p>Gesuche</p>
               </md-list-item>
 
-              <md-list-item href="javascript:void(0)" @click="scrollToElement()">
+              <md-list-item href="/offers" @click="scrollToElement()">
                 <p>Angebote</p>
               </md-list-item>
 
@@ -98,7 +98,7 @@
                             <a href="#pablo" class="dropdown-item">Einstellungen</a>
                           </li>
                           <li>
-                            <a href="#pablo" class="dropdown-item">Abmelden</a>
+                            <a href="https://localhost:4000/auth/logout" class="dropdown-item">Abmelden</a>
                           </li>
                         </ul>
                       </drop-down>

@@ -7,12 +7,14 @@ const passport = require("passport");
 const passportSetup = require("./config/passport.js");
 const cookieSession = require("cookie-session");
 const nodemailer = require("nodemailer");
-const sgTransport = require("nodemailer-sendgrid-transport");
 const app = express();
 const https = require('https');
 const fs = require('fs');
 const port = 4000;
 const auth_routes = require("./routes/auth_routes.js");
+const need_routes = require("./routes/need.js");
+const offer_routes = require("./routes/offer.js");
+const location_routes = require("./routes/location.js");
 const keys = require('./config/keys')
 const jsonParser = bodyParser.json();
 const https_options = {
@@ -20,8 +22,12 @@ const https_options = {
   cert: fs.readFileSync('./security/cert1.pem')
 };
 
+app.options('*', cors()) // include before other routes 
+app.use(cors());
+
 //Create and encrypt cookie
 app.use(cookieSession({
+  name: "session",
   maxAge: 24 * 60 * 60 * 1000,
   keys: [keys.session.cookieKey]
 }))
@@ -32,10 +38,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(morgan("tiny"));
-app.options('*', cors()) // include before other routes 
-app.use(cors());
-app.use("/auth", jsonParser,auth_routes);
 app.use(bodyParser.json());
+app.use("/auth", jsonParser,auth_routes);
+app.use("/need", need_routes);
+app.use("/offer", offer_routes);
+app.use("/location", location_routes);
+
 
 app.get("/", (req, res) => {
   res.json({
@@ -59,26 +67,24 @@ mongoose
 
 //Send email
 var options = {
+  service: "SendGrid",
   auth: {
-    api_user: keys.sendgrid.sg_user,
-    api_key: keys.sendgrid.sg_key
+    user: keys.sendgrid.sg_user,
+    pass: keys.sendgrid.sg_key  
   }
 };
 
-
-var transporter = nodemailer.createTransport(sgTransport(options));
+var transporter = nodemailer.createTransport(options);
 
 app.post("/email", (req, res) => {
-  console.log(req.ip);
-  if (req.ip == "::ffff:127.0.0.1") {
+  console.log(req.body);
     mailOptions = {
       from: req.body.name + " from <" + req.body.email + ">",
       to: "info@excoronahilfe.de",
-      subject: req.body.subject,
-      text: req.body.text
+      subject: "Anfrage von "+ req.body.name,
+      text: "Der Schreibende ist an folgendem interessiert: " + req.body.interests + "\n\n\nEr wohnt im PLZ-Gebiet: " + req.body.zip + "\n\n\nDie Nachricht ist:\n\n" + req.body.text + "\n\n\n Der Nutzer hat den Datenschutz bestimmungen zugestimmt: " + req.body.privacy_accepted
     }
-    console.log(req.body);
-    console.log("set options");
+  
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
         console.log(error);
@@ -86,8 +92,7 @@ app.post("/email", (req, res) => {
         console.log("Email sent: " + info.response);
       }
     });
-    console.log("done");
-  };
+  res.status(204).send();
 });
 
 //Routes

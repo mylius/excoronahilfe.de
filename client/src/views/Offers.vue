@@ -22,24 +22,20 @@
                 v-bind:currentPage="currentPage"
                 v-bind:result="result"
               ></ResultItem>
-              </div>
-              <div class = "result-navigation" style="display:inline-block; width:100%">
-                <pagination type="success" style="float:left" v-model="currentPage" :page-count="2"></pagination>
-                <div style="float:right">
+            </div>
+            <div class="result-navigation" style="display:inline-block; width:100%">
+              <pagination type="success" style="float:left" v-model="currentPage" :page-count="2"></pagination>
+              <div style="float:right">
                 <div class="result-new" style="float:right">
                   <router-link :to="{name: 'createentry'}">
                     <md-button id="new_entry" class="md-success">Neuer Eintrag</md-button>
                   </router-link>
                 </div>
-
               </div>
             </div>
             <br />
             <br />
-
           </div>
-
-          
         </div>
       </div>
     </div>
@@ -49,8 +45,7 @@
 <script>
 import DataService from "../services/dataservice";
 const dataservice = new DataService();
-var GET_NEEDS_URL = "https://localhost:4000/need/getAll"
-import {ResultItem} from '@/components';
+import { ResultItem } from "@/components";
 import axios from "axios";
 export default {
   bodyClass: "profile-page",
@@ -58,13 +53,13 @@ export default {
     header: {
       type: String,
       default: require("@/assets/img/bg8.webp")
-    },
+    }
   },
   components: {
-    ResultItem,
+    ResultItem
   },
   async beforeMount() {
-    await this.getNeeds();
+    await this.getOffers();
     this.updateVisibleResults();
   },
   data() {
@@ -86,10 +81,10 @@ export default {
     }
   },
   methods: {
-    async getNeeds() {
-        this.results = await dataservice.getNeeds().then((data) => {
-            return data;
-        });
+    async getOffers() {
+      this.results = await dataservice.getOffers().then(data => {
+        return data;
+      });
     },
     updatePage(pageNumber) {
       this.currentPage = pageNumber;
