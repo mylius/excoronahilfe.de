@@ -49,6 +49,7 @@ router.post("/findNearest", (req, res, next) => {
                 "spherical": true,
                 "maxDistance": 10000
             }}
+<<<<<<< HEAD
         ],(err,data)=>{
             if(err) {
               next(err);
@@ -56,6 +57,13 @@ router.post("/findNearest", (req, res, next) => {
             }
             res.send(data);
           })    
+=======
+        ],
+        function(err,results) {
+            res.send()
+        }
+    )
+>>>>>>> dbb094a9107b5ceffbe69fbf6f80304067374d5c
 });
 
 router.post("/delete", (req, res, next) => { 
@@ -68,6 +76,7 @@ router.post("/delete", (req, res, next) => {
     })
 });
 
+<<<<<<< HEAD
 router.get("/getAll", (req, res, next) => { 
     console.log("request");
     Offer.find({}, function(err, docs) {
@@ -81,4 +90,6 @@ router.get("/getAll", (req, res, next) => {
     })
 });
 
+=======
+>>>>>>> dbb094a9107b5ceffbe69fbf6f80304067374d5c
 module.exports = router;
