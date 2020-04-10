@@ -47,11 +47,11 @@
                 </ul>
                 Unser Aufruf richte sich an alle Menschen die von Corona (COVID-19) genesen sowie immunisiert sind und helfen möchten.
                 <br />
-                Team & Kontakt: 
+                Kontakt: 
                 <br />
                 <a href="mailto:info@ExCoronaHilfe.de">info@ExCoronaHilfe.de</a>
                 <br />
-                Alexander Tietz-Latza     Sebastian Stölting    Matthias Eisner 
+                Gründer: Alexander Tietz-Latza     Sebastian Stölting 
                 <a name="1b"></a> 
                 <h2 class="title">Welche Angebote bietet ihr an?</h2>
                 Wir bieten einen Kontaktpunkt, um von einer Corona-Infektion gesundete und immunisierte Menschen:
