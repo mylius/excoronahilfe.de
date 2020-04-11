@@ -4,6 +4,7 @@ import AboutUs from "./views/AboutUs.vue";
 import Index from "./views/Index.vue";
 import Impressum from "./views/Impressum.vue";
 import Privacy from "./views/Privacy.vue";
+import Project from "./views/Project.vue";
 import FAQ from "./views/FAQ.vue";
 import MainNavbar from "./layout/MainNavbar.vue";
 import MainFooter from "./layout/MainFooter.vue";
@@ -27,6 +28,15 @@ export default new Router({
       components: { default: Impressum, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
+      }
+    },
+    {
+      path: "/project",
+      name: "project",
+      components: { default: Project, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
       }
     },
     {

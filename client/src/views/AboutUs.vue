@@ -29,7 +29,7 @@
                 <br/>
                 <br />
                 Gründer und Organisationsteam 
-                <br />
+                <br /> 
                 <br />
                 Alexander Tietz-Latza, Sebastian Stölting
                 <br />
@@ -42,19 +42,19 @@
           <div class="md-layout">
             <div class="md-layout-item md-medium-size-33 md-small-size-100">
               <div class="info">
-                <img src="@/assets/img/people/Alexander.webp" alt="Alexander">
+                <img src="@/assets/img/people/Alexander.jpg" style="height:250px" alt="Alexander">
                 <h4 class="info-title">Alexander</h4>
               </div>
             </div>
             <div class="md-layout-item md-medium-size-33 md-small-size-100">
               <div class="info">
-                <img src="@/assets/img/people/Sebastian.webp" alt="Sebastian">
+                <img src="@/assets/img/people/Sebastian.jpg" style="height:250px" alt="Sebastian">
                 <h4 class="info-title">Sebastian</h4>
               </div>
             </div>
             <div class="md-layout-item md-medium-size-33 md-small-size-100">
               <div class="info">
-                <img src="@/assets/img/people/Matthias.webp" alt="Matthias">
+                <img src="@/assets/img/people/Matthias.jpg" style="height:250px" alt="Matthias">
                 <h4 class="info-title">Matthias</h4>
               </div>
             </div>
@@ -72,7 +72,7 @@ export default {
   props: {
     header: {
       type: String,
-      default: require("@/assets/img/bg2019.webp")
+      default: require("@/assets/img/bg2019.jpg")
     },
   },
   data() {

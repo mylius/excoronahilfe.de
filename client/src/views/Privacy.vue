@@ -90,7 +90,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> 
   </div>
 </template>
 
@@ -100,7 +100,7 @@ export default {
   props: {
     header: {
       type: String,
-      default: require("@/assets/img/bg8.webp")
+      default: require("@/assets/img/bg8.jpg")
     },
   },
   data() {

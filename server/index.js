@@ -40,9 +40,9 @@ app.post("/email", (req, res) => {
   console.log(req.body);
     mailOptions = {
       from: req.body.name + " from <" + req.body.email + ">",
-      to: "info@excoronahilfe.de",
+      to: "baconian@posteo.de",
       subject: "Anfrage von "+ req.body.name,
-      text: "Der Schreibende ist an folgendem interessiert: " + req.body.interests + "\n\n\nEr wohnt im PLZ-Gebiet: " + req.body.zip + "\n\n\nDie Nachricht ist:\n\n" + req.body.text + "\n\n\n Der Nutzer hat den Datenschutz bestimmungen zugestimmt: " + req.body.privacy_accepted
+      text: "Der Schreibende ist an folgendem interessiert: " + req.body.interests + "\n\n\nEr wohnt im PLZ-Gebiet: " + req.body.zip + "\n\n\nDie Nachricht ist:\n\n" + req.body.text + "\n\n\n Der Nutzer hat den Datenschutzbestimmungen zugestimmt: " + req.body.privacy_accepted
     }
   
     transporter.sendMail(mailOptions, function (error, info) {

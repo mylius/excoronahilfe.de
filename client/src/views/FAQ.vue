@@ -138,7 +138,7 @@ export default {
   props: {
     header: {
       type: String,
-      default: require("@/assets/img/bg2019.webp")
+      default: require("@/assets/img/bg2019.jpg")
     },
   },
   data() {

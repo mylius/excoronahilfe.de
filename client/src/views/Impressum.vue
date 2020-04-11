@@ -12,7 +12,7 @@
     <div class="main main-raised">
       <div class="section">
         <div class="container">
-          <div class="md-layout">
+          <div class="md-layout"> 
             <div class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto">
               
                 <h2 class="title">Danksagung</h2>
@@ -57,7 +57,7 @@ export default {
   props: {
     header: {
       type: String,
-      default: require("@/assets/img/bg2019.webp")
+      default: require("@/assets/img/bg2019.jpg")
     },
   },
   data() {

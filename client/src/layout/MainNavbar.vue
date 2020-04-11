@@ -28,10 +28,16 @@
             </mobile-menu>
             <md-list>
               <md-list-item
-                href="#/"
+                href="#/project"
               > 
                 <i class="material-icons">content_paste</i>
-                <p>Über das Projekt</p>
+                <p>Die Initative</p>
+              </md-list-item>
+              <md-list-item
+                href="#/#mail"
+              > 
+                <i class="material-icons">mail</i>
+                <p>Helfen!</p>
               </md-list-item>
               <md-list-item
                 href="#/aboutus"
