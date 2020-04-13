@@ -100,7 +100,7 @@ export default {
   props: {
     header: {
       type: String,
-      default: require("@/assets/img/bg8.jpg")
+      default: require("@/assets/img/bg_bad_distortion.jpg")
     },
   },
   data() {

@@ -10,8 +10,8 @@
             <br />
             <br />
             <h4>
-              Wir haben die Initiative ExCoronaHilfe Deutschland gegründet und bauen
-              <b>ein Netzwerk von Covid-19 Gesundeten</b> auf, die jetzt immun sind. Wir leisten Hilfe, Beratung und Vermittlung, damit wir besonders effektiv helfen können. Macht mit und lasst uns gemeinsam helfen!
+              <b>Mit Hilfe der gemeinnützigen Gesellschaft für gesundes Altern und Prävention haben wir die Initiative ExCoronaHilfe Deutschland gegründet und bauen ein Netzwerk von Covid-19 Gesundeten auf, die jetzt immun sind. Wir leisten gemeinnützig Hilfe, Beratung und Vermittlung, damit wir besonders effektiv helfen können. Macht mit und lasst uns gemeinsam helfen!
+              </b>
               <br />
             </h4>
           </div>
@@ -207,7 +207,7 @@ export default {
   props: {
     header: {
       type: String,
-      default: require("@/assets/img/bg8.jpg")
+      default: require("@/assets/img/bg_bad_distortion.jpg")
     }
   },
   data() {

@@ -2,13 +2,13 @@
   <md-toolbar
     id="toolbar"
     md-elevation="0"
-    class="md-transparent md-absolute"
+    class="md-white md-absolute"
     :class="extraNavClasses"
     :color-on-scroll="colorOnScroll"
   >
     <div class="md-toolbar-row md-collapse-lateral">
-      <div class="md-toolbar-section-start" height="20px">
-        <a href="/"><img src="@/assets/img/ex_corona_hilfe.svg" alt="ExCorona Hilfe" class="svg"></a>
+      <div class="md-toolbar-section-start" height="30px">
+        <a href="/"><img src="@/assets/img/logos/ex_corona_de.png" style="height:70px" alt="ExCorona Hilfe"></a>
       </div>
       <div class="md-toolbar-section-end">
         <md-button
@@ -133,30 +133,6 @@ export default {
       this.toggledClass = !this.toggledClass;
       this.bodyClick();
     },
-    handleScroll() {
-      let scrollValue =
-        document.body.scrollTop || document.documentElement.scrollTop;
-      let navbarColor = document.getElementById("toolbar");
-      this.currentScrollValue = scrollValue;
-      if (this.colorOnScroll > 0 && scrollValue > this.colorOnScroll) {
-        this.extraNavClasses = `md-${this.type}`;
-        navbarColor.classList.remove("md-transparent");
-      } else {
-        if (this.extraNavClasses) {
-          this.extraNavClasses = "";
-          navbarColor.classList.add("md-transparent");
-        }
-      }
-    },
-    scrollListener() {
-      resizeThrottler(this.handleScroll);
-    },
-    scrollToElement() {
-      let element_id = document.getElementById("downloadSection");
-      if (element_id) {
-        element_id.scrollIntoView({ block: "end", behavior: "smooth" });
-      }
-    }
   },
   mounted() {
     document.addEventListener("scroll", this.scrollListener);
