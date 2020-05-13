@@ -16,6 +16,9 @@ export default new Router({
     {
       path: "/",
       name: "index",
+      meta:{
+        title:""
+      },
       components: { default: Index, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },

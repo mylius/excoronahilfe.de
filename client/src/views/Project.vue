@@ -1,5 +1,8 @@
 <template>
   <div class="wrapper">
+    <vue-headful
+      title="ExCoronaHilfe | Die Initiative"
+    />
     <parallax class="section page-header header-filter" :style="headerStyle">
       <div class="container">
         <div class="md-layout">

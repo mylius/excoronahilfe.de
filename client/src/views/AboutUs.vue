@@ -1,5 +1,8 @@
 <template>
   <div class="wrapper">
+    <vue-headful
+      title="ExCoronaHilfe | Über Uns"
+    />
     <parallax class="section page-header header-filter" :style="headerStyle">
       <div class="container">
         <div class="md-layout">
@@ -145,7 +148,7 @@ export default {
   props: {
     header: {
       type: String,
-      default: require("@/assets/img/bg_bad_distortion.jpg")
+      default: require("@/assets/img/bg_bad_distortion_small.jpg")
     },
     ex_corona_de: {
       type: String,
