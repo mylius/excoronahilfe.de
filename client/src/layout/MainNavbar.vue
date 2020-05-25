@@ -31,13 +31,25 @@
                 href="#/project"
               > 
                 <i class="material-icons">content_paste</i>
-                <p>Die Initative</p>
+                <p>Die Initiative</p>
               </md-list-item>
               <md-list-item
-                href="#/#mail"
+                href="#/contact"
               > 
                 <i class="material-icons">mail</i>
-                <p>Helfen!</p>
+                <p>Kontakt & Helfen</p>
+              </md-list-item>
+              <md-list-item
+                href="#/blooddonation"
+              >
+              <i class="material-icons">opacity</i>
+                <p>Blutspenden</p>
+              </md-list-item>
+              <md-list-item
+                href="#/immunization"
+              >
+                            <i class="material-icons">healing</i>
+                <p>Antikörper & Immunisierung</p>
               </md-list-item>
               <md-list-item
                 href="#/aboutus"

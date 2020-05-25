@@ -17,7 +17,7 @@
         <div class="container">
           <div class="md-layout">
             <div class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto">
-              Wir haben die Initiative ExCoronaHilfe Deutschland gegründet und bauen
+              Mit Hilfe der gemeinnützigen Gesellschaft für gesundes Altern und Prävention haben wir die Initiative ExCoronaHilfe Deutschland gegründet und bauen
               <b>ein Netzwerk von Covid-19 Gesundeten</b> auf, die jetzt immun sind. Wir leisten Hilfe, Beratung und Vermittlung, damit wir besonders effektiv helfen können. Macht mit und lasst uns gemeinsam helfen!
               <br />
               <br />Das Covid-19-Virus hat sich weltweit schnell ausgebreitet und lähmt das soziale und wirtschaftliche Leben. Wir wollen aber nicht im Stillstand verharren und dem Pessimismus verfallen. Wir schauen in die Zukunft und wollen Kraft spenden. Es gibt zu diesem Zeitpunkt bereits sehr viele Menschen die eine Covid-19 Infektion überstanden haben - Tendenz steigend! Tatsächlich sind weltweit fast ein Viertel aller ehemals an Covid-19 Erkrankten schon wieder genesen.
@@ -25,10 +25,8 @@
               <b>In Deutschland gibt es bereits {{casenumber}} Genesene, natürlich auch hier Tendenz rapide steigend.</b>
               <sup>
                 <a href="https://coronavirus.jhu.edu/map.html" style="color:white;">1</a>
-              </sup> In Zukunft werden die Zahlen der wieder gesundeten und bestätigt immunisierten Menschen sehr stark ansteigen. Wir nehmen dies als Motivation um optimistisch in die nahe Zukunft zu schauen. Wir wollen gestärkt aus der Erfahrung die Krankheit überwunden zu haben hervorgehen und Hoffnung und Zuversicht spenden, dass wir auch die Krise als Ganzes meistern.
+              </sup> Die Zahl der wieder genesenen und bestätigt immunisierten Menschen steigt sehr stark an. Wir nehmen dies als Motivation um optimistisch in die nahe Zukunft zu schauen. Wir wollen gestärkt aus der Erfahrung die Krankheit überwunden zu haben hervorgehen und Hoffnung als auch Zuversicht spenden, dass wir als die Krise gemeinsam meistern.
               <br />
-              <br />
-              <b>Wir suchen von einer Corona-Infektion gesundete und immunisierte Menschen, die ihre Kräfte einsetzen möchten, Menschen aus Risikogruppen und in Isolation lebend zu helfen, sowie für eine Plasmaspende zur passiven Immunisierung von Schwererkrankten zur Verfügung zu stehen.</b> Nach derzeitigen Erkenntnissen haben Ex-Patient*innen nach der Abheilung eine mittelfristige Immunität gegen eine Neuinfektion aufgebaut und sind so auch nicht mehr infektiös und gefährdend für andere. Unser Aufruf richte sich an alle Menschen die vom Coronavirus (COVID-19) genesen sowie immunisiert sind und helfen möchten.
             </div>
           </div>
         </div>
@@ -38,7 +36,7 @@
 </template>
 
 <script>
-const API_CASE_NUMBER_URL = "https://corona.lmao.ninja/countries/Germany";
+const API_CASE_NUMBER_URL = "https://corona.lmao.ninja/v2/countries/Germany";
 import axios from "axios";
 export default {
   bodyClass: "profile-page",

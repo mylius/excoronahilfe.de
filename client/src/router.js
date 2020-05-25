@@ -1,8 +1,11 @@
 import Vue from "vue";
 import Router from "vue-router";
 import AboutUs from "./views/AboutUs.vue";
+import Blooddonation from "./views/Blooddonation.vue";
+import Contact from "./views/Contact.vue";
 import Index from "./views/Index.vue";
 import Impressum from "./views/Impressum.vue";
+import Immunization from "./views/Immunization.vue";
 import Privacy from "./views/Privacy.vue";
 import Project from "./views/Project.vue";
 import FAQ from "./views/FAQ.vue";
@@ -62,6 +65,30 @@ export default new Router({
       path: "/aboutus",
       name: "aboutus",
       components: { default: AboutUs, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+      }
+    },
+    {
+      path: "/contact",
+      name: "contact",
+      components: { default: Contact, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+      }
+    },
+    {
+      path: "/immunization",
+      name: "immunization",
+      components: { default: Immunization, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+      }
+    },
+    {
+      path: "/blooddonation",
+      name: "blooddonation",
+      components: { default: Blooddonation, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
       }

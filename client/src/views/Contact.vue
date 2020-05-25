@@ -1,22 +1,13 @@
 <template>
   <div class="wrapper">
     <vue-headful
-      title="ExCoronaHilfe Deutschland"
+      title="ExCoronaHilfe | Kontakt und Helfen"
     />
     <parallax class="section page-header header-filter" :style="headerStyle">
       <div class="container">
         <div class="md-layout">
           <div class="md-layout-item md-size-50 md-small-size-70 md-xsmall-size-100">
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <h4>
-              <b>Mit Hilfe der gemeinnützigen Gesellschaft für gesundes Altern und Prävention haben wir die Initiative ExCoronaHilfe Deutschland gegründet und bauen ein Netzwerk von Covid-19 Gesundeten auf, die jetzt immun sind. Wir leisten gemeinnützig Hilfe, Beratung und Vermittlung, damit wir besonders effektiv helfen können. Macht mit und lasst uns gemeinsam helfen!
-              </b>
-              <br />
-            </h4>
+            <h1 class="title">Kontakt und Helfen</h1>
           </div>
         </div>
       </div>
@@ -24,72 +15,12 @@
     <div class="main main-raised">
       <div class="section">
         <div class="container">
-          <div class="features text-center">
-            <h2 class="title text-center">Was wir tun</h2>
-            <div class="md-layout">
-              <div class="md-layout-item md-medium-size-33 md-small-size-100">
-                <div class="info">
-                  <div class="icon icon-success">
-                    <md-icon>emoji_people</md-icon>
-                  </div>
-                  <h4 class="info-title">Hilfe</h4>
-                  <p>Wir vermitteln Besuchsdienste für isolierte Menschen, die unter Quarantäne stehen.</p>
-                </div>
-              </div>
-              <div class="md-layout-item md-medium-size-33 md-small-size-100">
-                <div class="info">
-                  <div class="icon icon-default">
-                    <md-icon>school</md-icon>
-                  </div>
-                  <h4 class="info-title">Weiterqualifiziergung</h4>
-                  <p>Wir organisieren Einsatz / Weiterqualifizierung für Schlüsselpositionen.</p>
-                </div>
-              </div>
-              <div class="md-layout-item md-medium-size-33 md-small-size-100">
-                <div class="info">
-                  <div class="icon icon-info">
-                    <md-icon>chat</md-icon>
-                  </div>
-                  <h4 class="info-title">Peer-Beratung</h4>
-                  <p>Wir organisieren unkomplizierte und auf Wunsch anonyme Peer-Beratung.</p>
-                </div>
-              </div>
-              <div class="md-layout-item md-medium-size-33 md-small-size-100">
-                <div class="info">
-                  <div class="icon icon-warning">
-                    <md-icon>healing</md-icon>
-                  </div>
-                  <h4 class="info-title">Blutspende</h4>
-                  <p>Wir vermitteln zur Blut bzw. Plasma oder Lymphozyten Spende für Schwererkrankte</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <div class="container">
           <div class="md-layout">
             <div class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto">
-              <br />
-              <br />
-              Wir wollen den solidarischen Zusammenhalt unserer Gesellschaft stärken und das entstandene Potenzial von über 150.000 Gesundeten wecken und bündeln. Wir stellen uns nicht nur mit Worten, sondern mit unseren Taten gegen jede Anfeindung von an Covid-19 Erkrankten. 
-              <br />
-              <br />Dies bedeutet konkret: 
-              <h5 class="title">Entstandener Unsicherheit und Ungewissheit entgegentreten!</h5>
-              Wir begleiten, um Sicherheit zurückzuerlangen, ob eine Covid-19 Erkrankung vorgelegen hat und vermitteln Informationen zu Antikörpertests und Immunität.
-              <h5 class="title">Erfahrungsaustausch ermöglichen und gemeinsam daran wachsen!</h5>
-              Unterstützung durch Peer-to-Peer Beratung für Erkrankte von Seiten Gesundeter und auf Wunsch auch Vernetzung zum Austausch über die erlebte Stigmatisierung.
-              <h5 class="title">Durch neu entstandenes Potenzial ein gestärktes Narrativ bilden!</h5>
-              Endlich selbst helfen! Durch die eigens überstandene Erkrankung und die Bildung von Antikörpern mittels Blut-/Plasma-/Lymphozytenspende vor allem Schwererkrankten eine passive Immunisierung und damit einen milderen Krankheitsverlauf ermöglichen.
+              <b>Wir suchen von einer Covid-19-Infektion genesene und immunisierte Menschen, die ihre Kräfte einsetzen möchten, um Menschen aus Risikogruppen und in Isolation lebend zu helfen. Wir möchten euch begleiten und motivieren für eine Plasmaspende zur passiven Immunisierung von Schwererkrankten zur Verfügung zu stehen.</b>
+              <br/> Nach derzeitigen Erkenntnissen haben Ex-Patient*innen nach der Abheilung eine mittelfristige Immunität gegen eine Neuinfektion aufgebaut und sind so auch nicht mehr infektiös und gefährdend für andere. Unser Aufruf richtet sich an alle Menschen die vom Coronavirus (Covid-19) genesen, sowie immunisiert sind und helfen möchten.
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="section section-contacts">
-        <div class="container">
-          <div class="md-layout">
             <div class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto">
-              <a id="mail"></a>
               <h2 class="text-center title">Du möchtest helfen?</h2>
               <h4 class="text-center description">Dann melde dich bei uns!</h4>
               <form class="contact-form" @submit.prevent="submit">
@@ -219,17 +150,18 @@
   </div>
 </template>
 
+
 <script>
 const API_URL = "https://excoronahilfe.de:4000/email";
 import axios from "axios";
 var emailRegExp = /[a-z0-9!#$%&'*+/=?^_‘{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_‘{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
 export default {
-  bodyClass: "landing-page",
+  bodyClass: "profile-page",
   props: {
     header: {
       type: String,
       default: require("@/assets/img/bg_bad_distortion_small.jpg")
-    }
+    },
   },
   data() {
     return {
@@ -254,7 +186,7 @@ export default {
       };
     }
   },
-  methods: {
+   methods: {
     // submit form handler
     submit: function() {
       this.clicked = true;
@@ -311,15 +243,7 @@ export default {
   display: flex;
   justify-content: center !important;
 }
-.contact-form {
-  margin-top: 30px;
-}
-
 .md-has-textarea + .md-layout {
   margin-top: 15px;
-
-  .map {
-    height: 700px;
-  }
 }
 </style>
